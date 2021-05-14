@@ -15,15 +15,16 @@
     <nav class="ui inverted attached segment m-padded">
         <!-- 设置一个容器 -->
         <div class="ui container">
-            <div class="ui inverted secondary menu">
+            <div class="ui inverted secondary stackable menu">
                 <!-- logo标志-->
                 <h2 class="ui teal header item">Blog</h2>
-                <a href="#" class="item"><i class="home icon"></i>首页</a>
-                <a href="#" class="item"><i class="idea icon"></i>分类</a>
-                <a href="#" class="item"><i class="tags icon"></i>标签</a>
-                <a href="#" class="item"><i class="user icon"></i>关于我</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="user icon"></i>关于我</a>
                 <!-- 搜索栏 -->
-                <div class="right item">
+                <div class="right m-item item m-mobile-hide">
                     <div class="ui icon inverted transparent input">
                         <div class="ui inverted divider"></div>
                         <!-- 文本框 placeholder==默认值-->
@@ -33,6 +34,9 @@
                 </div>
             </div>
         </div>
+        <a href="#" id="menutoggle" class="ui black icon button m-top-right m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
     </nav>
 
     <!-- 主体内容 -->
@@ -58,7 +62,7 @@
                     <div class="ui attached segment">
                         <div class="ui padded vertical segment m-padded-tb-large">
                             <!-- 分布局 -->
-                            <div class="ui grid">
+                            <div class="ui mobile reversed stackable grid">
                                 <div class="eleven wide column">
                                     <!-- 标题 -->
                                     <h3 class="ui header">测试测试测试测试</h3>
@@ -96,7 +100,7 @@
                         
                         <div class="ui padded vertical segment m-padded-tb-large">
                             <!-- 分布局 -->
-                            <div class="ui grid">
+                            <div class="ui  mobile reversed stackable grid">
                                 <div class="eleven wide column">
                                     <!-- 标题 -->
                                     <h3 class="ui header">测试测试测试测试</h3>
@@ -146,8 +150,99 @@
                 </div>
                 <!-- 右边分类栏 -->
                 <div class="five wide column">
-                    <div class="ui segment">
-
+                    <!-- 分类栏 -->
+                    <div class="ui segments">
+                        <!-- 第一个 ：分类栏的头部 灰色 -->
+                        <div class="ui secondary segment">
+                            <div class="ui two column grid">
+                                <div class="left aligned column">
+                                    <i class="idea icon"></i>分类
+                                </div>
+                                <div class="right aligned column">
+                                    <a href="#">more <i class="angle double right icon"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui teal segment">
+                            <div class="ui fluid vertical menu">
+                                <a href="" class="item">
+                                    学习分类
+                                    <div class="ui teal basic left pointing label">13</div>
+                                </a>
+                            </div>
+                            <div class="ui fluid vertical menu">
+                                <a href="" class="item">
+                                    学习分类
+                                    <div class="ui teal basic left pointing label">13</div>
+                                </a>
+                            </div>
+                            <div class="ui fluid vertical menu">
+                                <a href="" class="item">
+                                    学习分类
+                                    <div class="ui teal basic left pointing label">13</div>
+                                </a>
+                            </div>
+                            <div class="ui fluid vertical menu">
+                                <a href="" class="item">
+                                    学习分类
+                                    <div class="ui teal basic left pointing label">13</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 标签栏 -->
+                    <div class="ui segments m-margin-top-large">
+                        <div class="ui secondary segment">
+                            <div class="ui two column grid">
+                                <div class="left aligned column">
+                                    <i class="tags icon"></i>标签
+                                </div>
+                                <div class="right aligned column">
+                                    <a href="#">more <i class="angle double right icon"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui teal segment">
+                            <a href="" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">
+                                java<div class="detail">23</div>
+                            </a>
+                            <a href="" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">
+                                java<div class="detail">23</div>
+                            </a>
+                            <a href="" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">
+                                java<div class="detail">23</div>
+                            </a>
+                            <a href="" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">
+                                java<div class="detail">23</div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- 最新推荐 -->
+                    <div class="ui segments m-margin-top-large">
+                        <div class="ui secondary segment">
+                            <div class="ui two column grid">
+                                <div class="left aligned column">
+                                    <i class="bookmark icon"></i>最新推荐
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui segment">
+                            <a href="" target="_blank" class="m-black m-text-thin">SpringBoot</a>
+                        </div>
+                        <div class="ui segment">
+                            <a href="" target="_blank" class="m-black m-text-thin">SpringBoot</a>
+                        </div>
+                        <div class="ui segment">
+                            <a href="" target="_blank" class="m-black m-text-thin">SpringBoot</a>
+                        </div>
+                        <div class="ui segment">
+                            <a href="" target="_blank" class="m-black m-text-thin">SpringBoot</a>
+                        </div>
+                    </div>
+                    <!-- 二维码 -->
+                    <h4 class="ui horizontal divider header m-margin-top-large">扫码关注</h4>
+                    <div class="ui centered card" style="width:15em">
+                        <img src="./static/images/QRcode_A1.png" alt="" class="ui rounded image">
                     </div>
                 </div>
             </div>
@@ -157,12 +252,16 @@
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
     <!-- 底部 -->
     <footer class="ui inverted vertical segment m-padded-massive">
         <!-- 设置一个容器 -->
         <div class="ui center aligned container">
             <!-- 分割线 -->
-            <div class="ui inverted divided grid">
+            <div class="ui inverted divided stackable grid">
                 <!-- 第一列 -->
                 <div class="three wide column">
                     <div class="ui inverted link list">
@@ -187,7 +286,7 @@
                 <!-- 第三列 -->
                 <div class="four wide column">
                     <!-- 标题 -->
-                    <h4>最新博客</h4>
+                    <h4>联系我</h4>
                     <!-- 列表 -->
                     <div class="ui inverted link list">
                         <a href="#" class="item">测试测试</a>
@@ -199,15 +298,18 @@
                 <!-- 第四类 -->
                 <div class="five wide column">
                     <!-- 标题 -->
-                    <h4>最新博客</h4>
-                    <p>你密码是滴啊三年模拟滴啊搜DNA松动我按时到你家能否山东济南还是得努努力哦是浓密的您考虑</p>
+                    <h4>Blog</h4>
+                    <p>博客为中国软件开发者、IT从业人员、IT初学者打造交流的专业IT技术发表平台,全心致力于帮助开发者通过互联网分享知识,让更多开发者从中受益,一同和IT开发者用代码改变未来</p>
                 </div>
             </div>
         </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny" style="text-align: center;">Copyright ©2021 Blog 保留所有权利</p>
     </footer>
 
 
     <script src="./static/js/jquery-3.2.1.min.js"></script>
     <script src="./static/Semantic-UI-CSS-master/semantic.min.js"></script>
+    <script src="./static/js/main.js"></script>
 </body>
 </html>
