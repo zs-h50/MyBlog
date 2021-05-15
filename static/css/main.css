@@ -5,6 +5,13 @@ body{
     background: url("../images/bg.jpg")no-repeat center  !important;
     background-size: 1000% 1000% !important;
 }
+/* 导航阴影 */
+.m-show-small{
+    -webkit-box-shadow:0 4px 8px rgb(0, 0, 0,0.5) !important ;
+    box-shadow: 0 4px 8px rgb(0, 0, 0,0.5) !important;
+}
+
+/* 页面样式，乱的不想写注释 */
 .m-mobile-show{
     display: none !important;
 }
@@ -88,7 +95,7 @@ body{
     letter-spacing: 1px !important;
 }
 .m-text-lined{
-    line-height: 1.8;
+    line-height: 1.8 !important;
 }
 /* 透明度 */
 .m-opacity-thin{
@@ -101,7 +108,7 @@ body{
 
 /* 推荐分行栏颜色 */
 .m-black{
-    color:#333;
+    color:#333 !important;
 }
 
 .m-inline-block{
@@ -128,5 +135,9 @@ body{
     }
     .m-mobile-wide{
         width: 100% !important;
+    }
+    .m-padded-lr-clear{
+        padding-left:0 !important;
+        padding-right: 0 !important;
     }
 }
