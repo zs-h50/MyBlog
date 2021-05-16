@@ -8,3 +8,19 @@ $('#paybutton').popup({
     on : 'click',
     position : 'bottom center'
 });
+// github
+$('#github').popup({
+    popup : $('#git.popup'),
+    on : 'click',
+    position : 'bottom center'
+});
+// weixin
+$('#wechat').popup({
+    popup : $('#weixin.popup'),
+    position : 'bottom center'
+});
+// qq
+$('#QQ').popup({
+    popup : $('#q.popup'),
+    position : 'bottom center'
+});
