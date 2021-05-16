@@ -19,8 +19,21 @@ $('#wechat').popup({
     popup : $('#weixin.popup'),
     position : 'bottom center'
 });
+$('.wechat').popup({
+    popup : $('.weixin.popup'),
+    on : 'click',
+    position : 'left center'
+});
 // qq
 $('#QQ').popup({
     popup : $('#q.popup'),
     position : 'bottom center'
 });
+// 生成目录
+$('.toc').popup({
+    popup : $('.toc-container.popup'),
+    on : 'click',
+    position : 'left center'
+});
+
+  
