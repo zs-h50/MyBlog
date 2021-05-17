@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!-- 适应移动端 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>关于我</title>
+    <link rel="stylesheet" href="../static/Semantic-UI-CSS-master/semantic.min.css" th:href="@{/Semantic-UI-CSS-master/semantic.min.css}">
+    <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
+    <link rel="stylesheet" href="../static/css/image.css" th:href="@{/css/image.css}">
+    <link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}">
+</head>
+<body>
+    <!-- 导航模块 -->
+    <nav class="ui inverted attached segment m-padded m-show-small">
+        <!-- 设置一个容器 -->
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <!-- logo标志-->
+                <h2 class="ui teal header item">Blog</h2>
+                <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+                <a href="#" class="active m-item item m-mobile-hide"><i class="user icon"></i>关于我</a>
+                <!-- 搜索栏 -->
+                <div class="right m-item item m-mobile-hide">
+                    <div class="ui icon inverted transparent input">
+                        <div class="ui inverted divider"></div>
+                        <!-- 文本框 placeholder==默认值-->
+                        <input type="text" placeholder="请输入搜索内容">
+                        <i class="search link icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" id="menutoggle" class="ui black icon button m-top-right m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+
+    <!-- 博客文章内容 -->
+    <div class="m-container m-padded-tb-big">
+        <div class="ui container">
+            <!-- 左右布局 -->
+            <div class="ui stackable grid">
+                <!-- 图片部分 -->
+                <div class="ui eleven wide column">
+                    <div class="ui m-padded-tb-small-lr segment">
+                        <img src="https://picsum.photos/id/1035/800/600" alt="" class="ui rounded image">
+                    </div>
+                </div>
+                <!--  -->
+                <div class="five wide column">
+                    <div class="ui top attached segment">
+                        <div class="ui header">关于我</div>
+                    </div>
+                    <!-- 说明文字 -->
+                    <div class="ui attached segment">
+                        <p>热爱编程开发，希望能与大家一起学习成长，一同进步。</p>
+                        <p>路漫漫其修远今，吾将上下而求索。——屈原;旧书不厌百回读，熟读精思子自知。——苏轼;长风破浪会有时，直挂云帆济沧海。——李白;海阔凭鱼跃，天高任鸟飞。——僧云《览诗中之句》</p>
+                    </div>
+                    <!-- 标签 -->
+                    <div class="ui attached segment">
+                        <div class="large ui basic teal label">编程</div>
+                        <div class="large ui basic teal label">编程</div>
+                        <div class="large ui basic teal label">编程</div>
+                        <div class="large ui basic teal label">编程</div>
+                    </div>
+                    <!-- 知识点分区-->
+                    <div class="ui attached segment">
+                        <div class="small ui olive labels">
+                            <div class="ui tag label m-margin-tb-small">java</div>
+                            <div class="ui tag label m-margin-tb-small">Mybatis</div>
+                            <div class="ui tag label m-margin-tb-small">Spring</div>
+                            <div class="ui tag label m-margin-tb-small">Redis</div>
+                            <div class="ui tag label m-margin-tb-small">SpringBoot</div>
+                            <div class="ui tag label m-margin-tb-small">Liunx</div>
+                        </div>
+                    </div>
+                    <!-- 其他链接 -->
+                    <div class="ui bottom attached segment">
+                        <!-- github -->
+                        <a href="#" id="github" class="big ui circular github icon button"><i class="github icon"></i></a>
+                        <!-- 微信 -->
+                        <a href="#" id="wechat" class="big ui circular weixin icon button"><i class="weixin icon"></i></a>
+                        <!-- QQ -->
+                        <a href="#" id="QQ" class="big ui circular qq icon button"><i class="qq icon"></i></a>
+                    </div>
+                    <div id="git" class="ui flowing popup transition hidden">
+                        <div class="ui orange basic label">
+                            <div class="ui images" style="font-size: 14px;">
+                                <div class="image">
+                                    <img th:src="@{/images/QRcode_A1.png}" alt="" class="ui small  rounded bordered image">
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                    <div id="weixin" class="ui flowing popup transition hidden">
+                        <div class="ui orange basic label">
+                            <div class="ui images" style="font-size: 14px;">
+                                <div class="image">
+                                    <img th:src="@{/images/QRcode_A1.png}" alt="" class="ui small  rounded bordered image">
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                    <div id="q" class="ui flowing popup transition hidden">
+                        <div class="ui orange basic label">
+                            <div class="ui images" style="font-size: 14px;">
+                                <div class="image">
+                                    <img th:src="@{/images/QRcode_A1.png}" alt="" class="ui small  rounded bordered image">
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 底部 -->
+    <footer class="ui inverted vertical segment m-padded-massive">
+        <!-- 设置一个容器 -->
+        <div class="ui center aligned container">
+            <!-- 分割线 -->
+            <div class="ui inverted divided stackable grid">
+                <!-- 第一列 -->
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <div class="item">
+                            <!-- 图片为圆角 -->
+                            <img th:src="@{/images/123.png}" class="ui rounded image m-img-one">
+                        </div>
+                    </div>
+                </div>
+                <!-- 第二列 -->
+                <div class="four wide column">
+                    <!-- 标题 -->
+                    <h4>最新博客</h4>
+                    <!-- 列表 -->
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">测试测试</a>
+                        <a href="#" class="item">测试测试</a>
+                        <a href="#" class="item">测试测试</a>
+                        <a href="#" class="item">测试测试</a>
+                    </div>
+                </div>
+                <!-- 第三列 -->
+                <div class="four wide column">
+                    <!-- 标题 -->
+                    <h4>联系我</h4>
+                    <!-- 列表 -->
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">测试测试</a>
+                        <a href="#" class="item">测试测试</a>
+                        <a href="#" class="item">测试测试</a>
+                        <a href="#" class="item">测试测试</a>
+                    </div>
+                </div>
+                <!-- 第四类 -->
+                <div class="five wide column">
+                    <!-- 标题 -->
+                    <h4>Blog</h4>
+                    <p>博客为中国软件开发者、IT从业人员、IT初学者打造交流的专业IT技术发表平台,全心致力于帮助开发者通过互联网分享知识,让更多开发者从中受益,一同和IT开发者用代码改变未来</p>
+                </div>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny" style="text-align: center;">Copyright ©2021 Blog 保留所有权利</p>
+    </footer>
+
+    <script src="../static/js/jquery-3.2.1.min.js" th:href="@{/js/jquery-3.2.1.min.js}"></script>
+    <script src="../static/Semantic-UI-CSS-master/semantic.min.js" th:href="@{/Semantic-UI-CSS-master/semantic.min.js}"></script>
+    <script src="../static/js/main.js" th:href="@{/js/main.js}"></script>
+</body>
+</html>

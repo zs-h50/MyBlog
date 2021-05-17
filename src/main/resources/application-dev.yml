@@ -1,0 +1,16 @@
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?characterEncoding=utf8
+    username: root
+    password: root
+logging:
+  level:
+    root: info
+    com:
+      example: debug
+  file:
+    name: log/blog.log
+
