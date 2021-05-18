@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!-- 适应移动端 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>博客登录页面</title>
+    <link rel="stylesheet" href="../../static/Semantic-UI-CSS-master/semantic.min.css" th:href="@{/Semantic-UI-CSS-master/semantic.min.css}">
+    <link rel="stylesheet" href="../../static/css/nav.css" th:href="@{/css/nav.css}">
+    <link rel="stylesheet" href="../../static/css/image.css" th:href="@{/css/image.css}">
+    <link rel="stylesheet" href="../../static/css/main.css" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="m-container-thin m-padded-tb-huges">
+    <div class="ur container">
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+                <h2 class="ui teal image header">
+                    <img class="ui right aligned" th:src="@{/images/logo.png}">
+                    <div class="content">
+                        博客管理平台登录
+                    </div>
+                </h2>
+                <form class="ui large form m-padded-big" method="post" th:action="@{/admin/login}">
+                    <div class="ui segment">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="username" placeholder="用户名">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password" placeholder="密码">
+                            </div>
+                        </div>
+                        <button class="ui fluid large teal submit button">登 录</button>
+                    </div>
+
+                    <div class="ui error message"></div>
+                    <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名或密码错误！请重新输入！</div>
+                </form>
+
+<!--                注册-->
+<!--                <div class="ui message">-->
+<!--                    New to us? <a href="#">Sign Up</a>-->
+<!--                </div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="../../static/js/jquery-3.2.1.min.js" th:src="@{/js/jquery-3.2.1.min.js}"></script>
+    <script src="../../static/Semantic-UI-CSS-master/semantic.min.js" th:src="@{/Semantic-UI-CSS-master/semantic.min.js}"></script>
+    <script src="../../static/js/main.js" th:src="@{/js/main.js}"></script>
+    <script src="./js/admin.js" th:src="@{/js/admin.js}"></script>
+</body>
+</html>

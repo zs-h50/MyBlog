@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!-- 适应移动端 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>博客分类页面</title>
+    <link rel="stylesheet" href="../../static/Semantic-UI-CSS-master/semantic.min.css" th:href="@{/Semantic-UI-CSS-master/semantic.min.css}">
+    <link rel="stylesheet" href="../../static/css/nav.css" th:href="@{/css/nav.css}">
+    <link rel="stylesheet" href="../../static/css/image.css" th:href="@{/css/image.css}">
+    <link rel="stylesheet" href="../../static/css/main.css" th:href="@{/css/main.css}">
+</head>
+<body>
+    <!-- 导航模块 -->
+    <nav class="ui inverted attached segment m-padded m-show-small">
+        <!-- 设置一个容器 -->
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <!-- logo标志-->
+                <a th:href="@{/admin/adindex}"><div class="ui teal header item" style="font-size: 24px">Blog</div></a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>博客</a>
+                <a href="#" class="active m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+                <!-- 菜单 -->
+                <div class="right m-item m-mobile-hide menu">
+                    <div id="menus" class="ui dropdown item">
+                        <div class="text">
+                            <img class="ui avatar image" src="https://picsum.photos/id/1003/100/100">
+                            蜻蜓队长
+                          </div>
+                          <i class="dropdown icon"></i>
+                          <div class="menu">
+                            <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" id="menutoggle" class="ui black icon button m-top-right m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+    <!-- 二级导航 -->
+    <div class="ui attached pointing menu">
+        <div class="ui container">
+            <div class="right menu">
+                <a href="#" class="item">发布</a>
+                <a href="#" class="active teal item">列表</a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- 主体内容 -->
+    <div class="m-container m-padded-tb-large">
+        <!-- 容器 -->
+        <div class="ui container">
+            <!-- 表格 -->
+            <table class="ui large inverted table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名称</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <!-- 表格内容 -->
+                <tbody>
+                    <td>1</td>
+                    <td>SpringBoot学习笔记</td>
+                    <td>SpringBoot</td>
+                    <td>是</td>
+                    <td>2021-5-16 11:44:36</td>
+                    <td>
+                        <div class="ui mini compact buttons">
+                            <a href="#" class="ui mini blue button"><i class="edit alternate icon"></i> 编辑</a>
+                            <div class="or"></div>
+                            <a href="#" class="ui mini red button"><i class="trash alternate icon"></i> 删除</a>
+                        </div>
+                    </td>
+                </tbody>
+                <!-- 表尾 -->
+            <tfoot>
+                <tr>
+                    <th colspan="6">
+                        <div class="small ui right floated pagination menu">
+                            <a class="icon item">
+                              <i class="left chevron icon"></i>
+                            </a>
+                            <a class="item">1</a>
+                            <a class="item">2</a>
+                            <a class="item">3</a>
+                            <a class="item">4</a>
+                            <a class="icon item">
+                              <i class="right chevron icon"></i>
+                            </a>
+                          </div>
+                          <a href="#" class="ui small teal basic button"><i class="pencil alternate icon"></i>  新增</a>
+                    </th>
+                </tr>
+            </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <footer class="ui inverted vertical segment m-padded-massive">
+        <!-- 设置一个容器 -->
+        <div class="ui center aligned container">
+            <!-- 分割线 -->
+            <div class="ui inverted divided stackable grid">
+                <!-- 第一列 -->
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <div class="item">
+                            <!-- 图片为圆角 -->
+                            <img th:src="@{/images/123.png}" class="ui rounded image m-img-one">
+                        </div>
+                    </div>
+                </div>
+                <!-- 第二列 -->
+                <div class="four wide column">
+                    <!-- 标题 -->
+                    <h4>最新博客</h4>
+                    <!-- 列表 -->
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">测试测试</a>
+                        <a href="#" class="item">测试测试</a>
+                        <a href="#" class="item">测试测试</a>
+                        <a href="#" class="item">测试测试</a>
+                    </div>
+                </div>
+                <!-- 第三列 -->
+                <div class="four wide column">
+                    <!-- 标题 -->
+                    <h4>联系我</h4>
+                    <!-- 列表 -->
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">测试测试</a>
+                        <a href="#" class="item">测试测试</a>
+                        <a href="#" class="item">测试测试</a>
+                        <a href="#" class="item">测试测试</a>
+                    </div>
+                </div>
+                <!-- 第四类 -->
+                <div class="five wide column">
+                    <!-- 标题 -->
+                    <h4>Blog</h4>
+                    <p>博客为中国软件开发者、IT从业人员、IT初学者打造交流的专业IT技术发表平台,全心致力于帮助开发者通过互联网分享知识,让更多开发者从中受益,一同和IT开发者用代码改变未来</p>
+                </div>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny" style="text-align: center;">Copyright ©2021 Blog 保留所有权利</p>
+    </footer>
+
+
+    <script src="../../static/js/jquery-3.2.1.min.js" th:src="@{/js/jquery-3.2.1.min.js}"></script>
+    <script src="../../static/Semantic-UI-CSS-master/semantic.min.js" th:src="@{/Semantic-UI-CSS-master/semantic.min.js}"></script>
+    <script src="../../static/js/main.js" th:src="@{/js/main.js}"></script>
+    <script src="./js/admin.js" th:src="@{/js/admin.js}"></script>
+</body>
+</html>
