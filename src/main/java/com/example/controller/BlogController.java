@@ -19,4 +19,5 @@ public class BlogController {
     public String adblog(){
         return "admin/adblog";
     }
+
 }

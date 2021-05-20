@@ -5,7 +5,7 @@ var contentEditor;
         width   : "90%",
         height  : 640,
         syncScrolling : "single",
-         path   : "../static/lib/Markdown/lib/"
+         path   : "./static/lib/Markdown/lib/"
     });
                 
     /*

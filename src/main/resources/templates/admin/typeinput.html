@@ -16,12 +16,17 @@
     <nav class="ui inverted attached segment m-padded m-show-small">
         <!-- 设置一个容器 -->
         <div class="ui container">
+            <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+                <i class="close icon"></i>
+                <div class="header">提示：</div>
+                <div th:text="${message}">提示：添加成功！</div>
+            </div>
             <div class="ui inverted secondary stackable menu">
                 <!-- logo标志-->
                 <a th:href="@{/admin/adindex}"><div class="ui teal header item" style="font-size: 24px">Blog</div></a>
-                <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>博客</a>
-                <a href="#" class="active m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
-                <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+                <a href="#" th:href="@{/admin/adblog}" class="m-item item m-mobile-hide"><i class="home icon"></i>博客</a>
+                <a href="#" th:href="@{/admin/types}" class="active m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+                <a href="#" th:href="@{/admin/tags}" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
                 <!-- 菜单 -->
                 <div class="right m-item m-mobile-hide menu">
                     <div id="menus" class="ui dropdown item">
@@ -45,8 +50,8 @@
     <div class="ui attached  pointing menu">
         <div class="ui container">
             <div class="right menu">
-                <a href="#" class="teal item">发布</a>
-                <a href="#" class="item">列表</a>
+                <a href="#" th:href="@{/types/input}" class="active teal item">发布</a>
+                <a href="#" th:href="@{/admin/types}" class="item">列表</a>
             </div>
         </div>
 
@@ -58,20 +63,22 @@
     <div class="m-container m-padded-tb-large">
         <!-- 容器 -->
         <div class="ui container">
-            <form action="#" method="post" class="ui form">
+            <form action="#" method="post" th:action="@{/admin/types}" class="ui form">
                 <!-- 错误提示 -->
-                <div class="ui error message"></div>
-                <div class="field">
+                <div class="ui error message">
+                    <i class="close icon"></i>
+                </div>
+                <div class="required field">
                     <div class="ui left labeled action input m-padded-tb-huges">
-                        <label id="ty" class="ui compact teal basic label">分类名称</label>
-                        <input type="text" name="indexPicture" id="" placeholder="输入分类名称">
+                        <label class="ui compact teal basic label">分类名称</label>
+                        <input type="text" name="name" id="name" placeholder="输入分类名称">
                     </div>
                 </div>
 
                 <!-- 按钮 -->
                 <div class="ui right aligned container">
                     <button type="button" class="ui olive button m-margin-buttom-lr-small" onclick="window.history.go(-1)"><i class="reply icon"></i> 返回</button>
-                    <button class="ui green button m-margin-buttom-lr-small"><i class="upload icon"></i>添加</button>
+                    <button class="ui green submit button m-margin-buttom-lr-small"><i class="upload icon"></i>添加</button>
                 </div>
             </form>
         </div>
@@ -137,15 +144,19 @@
     <script>
         $('.ui.form').form({
             fields :{
-                ty:{
-                    identifier:'ty',
+                title:{
+                    identifier:'name',
                     rules: [{
                         type: 'empty',
-                        prompt : '不能为空！！！'
+                        prompt : '提示: 分类名称不可忽略！请重新填写！'
                     }]
                 }
             }
-        })
+        });
+        //消息关闭初始化
+        $('.message .close').on('click',function(){
+           $(this).closest('.message').transition('fade');
+        });
     </script>
 </body>
 </html>

@@ -1,9 +1,17 @@
 package com.example.pojo;
 
+import com.sun.istack.internal.NotNull;
+import org.springframework.lang.NonNull;
+import org.springframework.validation.annotation.Validated;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Type {
     private Long id;
-
     private String name;
+
+    private List<Blog> blogs = new ArrayList<>();
 
     public Long getId() {
         return id;

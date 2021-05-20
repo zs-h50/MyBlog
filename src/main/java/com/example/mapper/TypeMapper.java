@@ -21,5 +21,5 @@ public interface TypeMapper {
      * 分页查询
      * @return
      */
-    List<Type> selectPage();
+    List<Type> getAllType();
 }
