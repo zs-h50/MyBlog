@@ -1,9 +1,5 @@
 package com.example.pojo;
-
-import com.sun.istack.internal.NotNull;
-import org.springframework.lang.NonNull;
-import org.springframework.validation.annotation.Validated;
-
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 

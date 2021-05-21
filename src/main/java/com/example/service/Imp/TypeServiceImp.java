@@ -17,6 +17,7 @@ import java.util.List;
 @Service
 @Transactional
 public class TypeServiceImp implements TypeService {
+
     @Autowired
     private TypeMapper typeMapper;
 
@@ -37,5 +38,25 @@ public class TypeServiceImp implements TypeService {
     @Override
     public int insert(Type record) {
         return typeMapper.insert(record);
+    }
+
+    /**
+     * 查询分类名称
+     * @param name
+     * @return
+     */
+    @Override
+    public Type getTypeByName(String name) {
+        return typeMapper.getTypeByName(name);
+    }
+
+    /**
+     * 根据id查询分类
+     * @param id
+     * @return
+     */
+    @Override
+    public Type selectByPrimaryKey(Long id) {
+        return null;
     }
 }

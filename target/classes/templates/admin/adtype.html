@@ -57,6 +57,18 @@
     <div class="m-container m-padded-tb-large">
         <!-- 容器 -->
         <div class="ui container">
+            <!--成功提示-->
+            <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+                <i class="close icon"></i>
+                <div class="header">提示：</div>
+                <div th:text="${message}">提示：添加成功！</div>
+            </div>
+            <!--分类重复提示-->
+<!--            <div class="ui negetive message" th:unless="${#strings.isEmpty(msg)}">-->
+<!--                <i class="close icon"></i>-->
+<!--                <div class="header">验证失败：</div>-->
+<!--                <p th:text="${msg}">对不起，操作失败！</p>-->
+<!--            </div>-->
             <!-- 表格 -->
             <table class="ui large inverted table">
                 <thead>
@@ -163,5 +175,11 @@
     <script src="../../static/Semantic-UI-CSS-master/semantic.min.js" th:src="@{/Semantic-UI-CSS-master/semantic.min.js}"></script>
     <script src="../../static/js/main.js" th:src="@{/js/main.js}"></script>
     <script src="./js/admin.js" th:src="@{/js/admin.js}"></script>
+    <script>
+        //消息关闭初始化
+        $('.message .close').on('click',function(){
+            $(this).closest('.message').transition('fade');
+        });
+    </script>
 </body>
 </html>

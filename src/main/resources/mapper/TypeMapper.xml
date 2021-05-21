@@ -60,4 +60,10 @@
     <include refid="Base_Column_List" />
     from t_type
   </select>
+  <select id="getTypeByName" parameterType="com.example.pojo.Type" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_type
+    where name = #{name}
+  </select>
 </mapper>

@@ -24,4 +24,17 @@ public interface TypeService {
      */
     int insert(Type record);
 
+    /**
+     * 查询数据库已存在分类名称
+     * @param name
+     * @return
+     */
+    Type getTypeByName(String name);
+
+    /**
+     * 查询
+     * @param id
+     * @return
+     */
+    Type selectByPrimaryKey(Long id);
 }

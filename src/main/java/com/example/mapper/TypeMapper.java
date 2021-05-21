@@ -11,6 +11,11 @@ public interface TypeMapper {
 
     int insertSelective(Type record);
 
+    /**
+     * 根据id查询分类
+     * @param id
+     * @return
+     */
     Type selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(Type record);
@@ -22,4 +27,14 @@ public interface TypeMapper {
      * @return
      */
     List<Type> getAllType();
+
+
+     /*
+     查询分类名称
+      */
+    Type getTypeByName(String name);
+
+
+
+
 }
