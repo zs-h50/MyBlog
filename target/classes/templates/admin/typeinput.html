@@ -56,21 +56,20 @@
     <div class="m-container m-padded-tb-large">
         <!-- 容器 -->
         <div class="ui container">
+            <div class="ui negetive message" th:unless="${#strings.isEmpty(msg)}">
+                <i class="close icon"></i>
+                <div class="header">提示：</div>
+                <p th:text="${msg}">对不起，操作失败！</p>
+            </div>
             <form action="#" method="post" th:action="@{/admin/types}" th:object="${type}" class="ui form">
-                <input type="hidden" name="id" th:value="*{id}">
                 <div class="required field">
                     <div class="ui left labeled action input m-padded-tb-huges">
                         <label class="ui compact teal basic label">分类名称</label>
-                        <input type="text" name="name"  placeholder="输入分类名称" th:value="*{name}">
+                        <input type="text" name="name"  placeholder="输入分类名称" >
                     </div>
                 </div>
                 <!-- 错误提示 -->
                 <div class="ui error message"></div>
-<!--                <div class="ui negative message" th:unless="${#strings.isEmpty(msg)}">
-                    <i class="close icon"></i>
-                    <div class="header">提示：</div>
-                    <p th:text="${msg}">对不起，操作失败！</p>
-                </div>-->
                 <!-- 按钮 -->
                 <div class="ui right aligned container">
                     <button type="button" class="ui olive button m-margin-buttom-lr-small" onclick="window.history.go(-1)"><i class="reply icon"></i> 返回</button>

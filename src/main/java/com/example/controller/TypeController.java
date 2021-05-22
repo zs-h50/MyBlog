@@ -67,9 +67,10 @@ public class TypeController {
              查询是否插入相同的名称
              */
             //System.out.println("111111111111");
-            attributes.addFlashAttribute("message","分类名称已存在！请重新输入！");
+            attributes.addFlashAttribute("msg","分类名称已存在！请重新输入！");
             //.out.println("222222222222222");
-            return "redirect:/admin/types";
+            //return "redirect:/admin/types";
+            return "redirect:/types/input";
         }
 
         i = typeService.insert(type);
@@ -90,9 +91,12 @@ public class TypeController {
      * @return
      */
     @GetMapping(value = "/admin/types/{id}/input")
-    public String edittpye(@PathVariable Long id, Model model){
-        Type Type = typeService.selectByPrimaryKey(id);
-        model.addAttribute("Type",Type);
+    public String edittpye(@PathVariable Long id,
+                           Model model,
+                           RedirectAttributes attributes){
+        Type type = typeService.selectByPrimaryKey(id);
+        attributes.addFlashAttribute("type",type);
+        //model.addAttribute("Type",Type);
         return "admin/typeinput";
     }
 
