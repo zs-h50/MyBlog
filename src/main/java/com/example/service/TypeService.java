@@ -32,9 +32,20 @@ public interface TypeService {
     Type getTypeByName(String name);
 
     /**
-     * 查询
+     * 查询要修改的分类
      * @param id
      * @return
      */
     Type selectByPrimaryKey(Long id);
+    /**
+     * 修改分类名称
+     */
+    int updateByType(Type type);
+
+    /**
+     * 删除分类
+     * @param id
+     * @return
+     */
+    int deleteByPrimaryKey(Long id);
 }

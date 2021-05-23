@@ -85,7 +85,7 @@ public class TypeController {
     }
 
     /**
-     * 修改分类名称
+     * 查询修改分类名称
      * @param id
      * @param model
      * @return
@@ -94,10 +94,68 @@ public class TypeController {
     public String edittpye(@PathVariable Long id,
                            Model model,
                            RedirectAttributes attributes){
-        Type type = typeService.selectByPrimaryKey(id);
-        attributes.addFlashAttribute("type",type);
-        //model.addAttribute("Type",Type);
+        //Type type = typeService.selectByPrimaryKey(id);
+        //attributes.addFlashAttribute("type",type);
+        model.addAttribute("type",typeService.selectByPrimaryKey(id));
         return "admin/typeinput";
     }
 
+    /**
+     * 修改分类
+     * @param id 获取id，不能缺少。
+     * @param type
+     * @param result
+     * @param model
+     * @param attributes
+     * @return
+     */
+    @PostMapping(value = "/admin/types/{id}")
+    public String typeedit(@PathVariable Long id ,
+                           Type type,
+                           BindingResult result,
+                           Model model,
+                           RedirectAttributes attributes){
+        int i ;
+        if (result.hasErrors()) {
+            return "admin/typeinput";
+        }
+        if (typeService.getTypeByName(type.getName()) != null){
+            /*
+             查询是否插入相同的名称
+             */
+            //System.out.println("111111111111");
+            attributes.addFlashAttribute("msg","分类名称已存在！请重新输入！");
+            //.out.println("222222222222222");
+            //return "redirect:/admin/types";
+            return "redirect:/types/input";
+        }
+
+        i = typeService.updateByType(type);
+        if (i != 0) {
+            //成功情况
+            attributes.addFlashAttribute("message", "编辑成功！");
+            //model.addAttribute("message","编辑成功！");
+            //return "redirect:/admin/types"; //重定向到之前请求
+        } else {
+            //失败情况
+            attributes.addFlashAttribute("message", "编辑失败！");
+            //model.addAttribute("message","编辑失败！");
+            //return "redirect:/types/input";
+        }
+        return "redirect:/admin/types"; //重定向到之前请求
+    }
+
+
+    @GetMapping(value = "/admin/types/{id}/delete")
+    public String deleteType(@PathVariable Long id,RedirectAttributes attributes){
+        int i = typeService.deleteByPrimaryKey(id);
+        if (i != 0) {
+            //成功情况
+            attributes.addFlashAttribute("message", "删除成功！");
+        } else {
+            //失败情况
+            attributes.addFlashAttribute("message", "删除失败！");
+        }
+        return "redirect:/admin/types";
+    }
 }

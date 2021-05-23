@@ -57,6 +57,26 @@ public class TypeServiceImp implements TypeService {
      */
     @Override
     public Type selectByPrimaryKey(Long id) {
-        return null;
+        return typeMapper.selectByPrimaryKey(id);
+    }
+
+    /**
+     * 修改分类名称
+     * @param type
+     * @return
+     */
+    @Override
+    public int updateByType(Type type) {
+        return typeMapper.updateByPrimaryKeySelective(type);
+    }
+
+    /**
+     * 删除
+     * @param id
+     * @return
+     */
+    @Override
+    public int deleteByPrimaryKey(Long id) {
+        return typeMapper.deleteByPrimaryKey(id);
     }
 }
