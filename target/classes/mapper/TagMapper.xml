@@ -55,4 +55,15 @@
     set name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="getAllTag" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_tag
+  </select>
+  <select id="getTagByName" parameterType="com.example.pojo.Tag" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_tag
+    where name = #{name}
+  </select>
 </mapper>

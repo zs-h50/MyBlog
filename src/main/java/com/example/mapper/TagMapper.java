@@ -2,6 +2,8 @@ package com.example.mapper;
 
 import com.example.pojo.Tag;
 
+import java.util.List;
+
 public interface TagMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -14,4 +16,17 @@ public interface TagMapper {
     int updateByPrimaryKeySelective(Tag record);
 
     int updateByPrimaryKey(Tag record);
+
+    /**
+     * 查询全部记录
+     * @return
+     */
+    List<Tag> getAllTag();
+
+    /**
+     *
+     * @param name
+     * @return
+     */
+    Tag getTagByName(String name);
 }

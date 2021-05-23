@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <!-- 适应移动端 -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>博客标签页面</title>
+    <title>标签管理页面</title>
     <link rel="stylesheet" href="../../static/Semantic-UI-CSS-master/semantic.min.css" th:href="@{/Semantic-UI-CSS-master/semantic.min.css}">
     <link rel="stylesheet" href="../../static/css/nav.css" th:href="@{/css/nav.css}">
     <link rel="stylesheet" href="../../static/css/image.css" th:href="@{/css/image.css}">
     <link rel="stylesheet" href="../../static/css/main.css" th:href="@{/css/main.css}">
+    <link rel="stylesheet" href="../../static/lib/Markdown/css/editormd.min.css" th:href="@{/lib/Markdown/css/editormd.min.css}">
 </head>
 <body>
     <!-- 导航模块 -->
@@ -41,82 +42,43 @@
         </a>
     </nav>
     <!-- 二级导航 -->
-    <div class="ui attached pointing menu">
+    <div class="ui attached  pointing menu">
         <div class="ui container">
             <div class="right menu">
-                <a href="#" th:href="@{/tags/input}" class="item">新增</a>
-                <a href="#" th:href="@{/admin/tags}" class="active teal item">列表</a>
+                <a href="#" th:href="@{/tags/input}" class="active teal item">新增</a>
+                <a href="#" th:href="@{/admin/tags}" class="item">列表</a>
             </div>
         </div>
-
     </div>
-
 
 
     <!-- 主体内容 -->
     <div class="m-container m-padded-tb-large">
         <!-- 容器 -->
         <div class="ui container">
-            <!--成功提示-->
-            <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+            <div class="ui negetive message" th:unless="${#strings.isEmpty(msg)}">
                 <i class="close icon"></i>
                 <div class="header">提示：</div>
-                <div th:text="${message}">提示：添加成功！</div>
+                <p th:text="${msg}">对不起，操作失败！</p>
             </div>
-            <!--分类重复提示-->
-<!--            <div class="ui negetive message" th:unless="${#strings.isEmpty(msg)}">-->
-<!--                <i class="close icon"></i>-->
-<!--                <div class="header">验证失败：</div>-->
-<!--                <p th:text="${msg}">对不起，操作失败！</p>-->
-<!--            </div>-->
-            <!-- 表格 -->
-            <table class="ui large inverted table">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>标签名称</th>
-                        <th>操作</th>
-                    </tr>
-                </thead>
-                <!-- 表格内容 -->
-                <tbody>
-                <tr th:each="tag,iterStat : ${pageInfo.list}">
-                    <td th:text="${iterStat.count}">1</td>
-                    <td th:text="${tag.name}">SpringBoot学习笔记</td>
-                    <td>
-                        <div class="ui mini compact buttons">
-                            <a href="#" th:href="@{/admin/tags/{id}/input(id=${tag.id})}" class="ui mini blue button"><i class="edit alternate icon"></i> 编辑</a>
-                            <div class="or"></div>
-                            <a href="#" th:href="@{/admin/tags/{id}/delete(id=${tag.id})}" class="ui mini red button"><i class="trash alternate icon"></i> 删除</a>
-                        </div>
-                    </td>
-                </tr>
-
-                </tbody>
-                <!-- 表尾 -->
-            <tfoot>
-                <tr>
-                    <th colspan="6">
-                        <div class="small ui right floated pagination menu">
-                            <div class="item"><a th:href="@{/admin/tag}">首页</a></div>
-                            <div class="item"><a th:href="@{/admin/tags(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}">上一页</a></div>
-                            <div class="item"><a th:href="@{/admin/tags(pageNum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}">下一页</a></div>
-                            <div class="item"><a th:href="@{/admin/tags(pageNum=${pageInfo.pages})}">尾页</a></div>
-                        </div>
-                        <div class="m-padded-top">
-                            <a href="#" th:href="@{/tags/input}" class="ui small teal basic button"><i class="pencil alternate icon"></i>  新增</a>
-                            <p class="m-margin-lr" style="display: inline">当前第<span th:text="${pageInfo.pageNum}"></span>页，总<span th:text="${pageInfo.pages}"></span>页，共<span th:text="${pageInfo.total}"></span>条记录</p>
-                        </div>
-                    </th>
-                </tr>
-            </tfoot>
-            </table>
+            <form action="#" method="post" th:object="${tag}" th:action="*{id}==null ? @{/admin/tags} : @{/admin/tags/{id}(id=*{id})}"  class="ui form">
+                <input type="hidden" name="id" th:value="${tag.id}">
+                <div class="required field">
+                    <div class="ui left labeled action input m-padded-tb-huges">
+                        <label class="ui compact teal basic label">标签名称</label>
+                        <input type="text" name="name"  placeholder="输入标签名称" th:value="${tag.name}">
+                    </div>
+                </div>
+                <!-- 错误提示 -->
+                <div class="ui error message"></div>
+                <!-- 按钮 -->
+                <div class="ui right aligned container">
+                    <button type="button" class="ui olive button m-margin-buttom-lr-small" onclick="window.history.go(-1)"><i class="reply icon"></i> 返回</button>
+                    <button class="ui green submit button m-margin-buttom-lr-small"><i class="upload icon"></i>添加</button>
+                </div>
+            </form>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
     <br>
     <br>
     <!-- 底部 -->
@@ -169,16 +131,27 @@
         <div class="ui inverted section divider"></div>
         <p class="m-text-thin m-text-spaced m-opacity-tiny" style="text-align: center;">Copyright ©2021 Blog 保留所有权利</p>
     </footer>
-
-
     <script src="../../static/js/jquery-3.2.1.min.js" th:src="@{/js/jquery-3.2.1.min.js}"></script>
     <script src="../../static/Semantic-UI-CSS-master/semantic.min.js" th:src="@{/Semantic-UI-CSS-master/semantic.min.js}"></script>
     <script src="../../static/js/main.js" th:src="@{/js/main.js}"></script>
     <script src="./js/admin.js" th:src="@{/js/admin.js}"></script>
+    <script src="./js/admins.js" th:src="@{/js/admins.js}"></script>
+    <script src="../../static/lib/Markdown/editormd.min.js" th:src="@{/lib/Markdown/editormd.min.js}"></script>
     <script>
+        $('.ui.form').form({
+            fields :{
+                title:{
+                    identifier:'name',
+                    rules: [{
+                        type: 'empty',
+                        prompt : '提示: 标签名称不可忽略！请重新填写！'
+                    }]
+                }
+            }
+        });
         //消息关闭初始化
         $('.message .close').on('click',function(){
-            $(this).closest('.message').transition('fade');
+           $(this).closest('.message').transition('fade');
         });
     </script>
 </body>
