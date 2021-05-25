@@ -2,6 +2,8 @@ package com.example.mapper;
 
 import com.example.pojo.Blog;
 
+import java.util.List;
+
 public interface BlogMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -16,4 +18,8 @@ public interface BlogMapper {
     int updateByPrimaryKeyWithBLOBs(Blog record);
 
     int updateByPrimaryKey(Blog record);
+
+    List<Blog> getALlBlog();
+
+    List<Blog> searchAllBlog(Blog blog);
 }

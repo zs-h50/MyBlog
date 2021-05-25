@@ -1,0 +1,84 @@
+2021-05-24 09:53:57.515  INFO 10260 --- [restartedMain] com.example.MyBlogApplication            : Starting MyBlogApplication using Java 1.8.0_171 on SKY-20180427JOM with PID 10260 (E:\MyBlog\target\classes started by Administrator in E:\MyBlog)
+2021-05-24 09:53:57.535 DEBUG 10260 --- [restartedMain] com.example.MyBlogApplication            : Running with Spring Boot v2.4.5, Spring v5.3.6
+2021-05-24 09:53:57.536  INFO 10260 --- [restartedMain] com.example.MyBlogApplication            : The following profiles are active: dev
+2021-05-24 09:53:57.793  INFO 10260 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-24 09:53:57.794  INFO 10260 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-24 09:54:05.527  INFO 10260 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-05-24 09:54:05.602  INFO 10260 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-24 09:54:05.603  INFO 10260 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-24 09:54:06.123  INFO 10260 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-05-24 09:54:06.124  INFO 10260 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 8318 ms
+2021-05-24 09:54:08.346  INFO 10260 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-24 09:54:08.629  INFO 10260 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-05-24 09:54:10.503  INFO 10260 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-05-24 09:54:10.620  INFO 10260 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-24 09:54:10.650  INFO 10260 --- [restartedMain] com.example.MyBlogApplication            : Started MyBlogApplication in 17.448 seconds (JVM running for 24.83)
+2021-05-24 09:55:21.543  INFO 10260 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-24 09:55:21.546  INFO 10260 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-05-24 09:55:21.550  INFO 10260 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2021-05-24 09:55:21.704  INFO 10260 --- [http-nio-8080-exec-1] com.example.aspect.LogAspect             : Request : RequestLog{url='http://localhost:8080/admin', ip='0:0:0:0:0:0:0:1', classMethod='com.example.controller.LoginController.loginPage', args=[]}
+2021-05-24 09:55:32.427  INFO 10260 --- [http-nio-8080-exec-3] com.example.aspect.LogAspect             : Request : RequestLog{url='http://localhost:8080/admin/login', ip='0:0:0:0:0:0:0:1', classMethod='com.example.controller.LoginController.login', args=[admin, a123456, org.apache.catalina.session.StandardSessionFacade@5d7b74ed, {}]}
+2021-05-24 09:55:32.627  INFO 10260 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-05-24 09:55:33.741  INFO 10260 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-05-24 09:55:33.771 DEBUG 10260 --- [http-nio-8080-exec-3] com.example.mapper.UserMapper.findUser   : ==>  Preparing: select username,password from t_user where username = ? and password = ?
+2021-05-24 09:55:33.796 DEBUG 10260 --- [http-nio-8080-exec-3] com.example.mapper.UserMapper.findUser   : ==> Parameters: admin(String), a123456(String)
+2021-05-24 09:55:33.882 DEBUG 10260 --- [http-nio-8080-exec-3] com.example.mapper.UserMapper.findUser   : <==      Total: 1
+2021-05-24 09:55:36.591  INFO 10260 --- [http-nio-8080-exec-6] com.example.aspect.LogAspect             : Request : RequestLog{url='http://localhost:8080/admin/adblog;jsessionid=021516CF4147132E1A9010478B411A20', ip='0:0:0:0:0:0:0:1', classMethod='com.example.controller.BlogController.adblog', args=[{}, 1]}
+2021-05-24 09:55:36.746 DEBUG 10260 --- [http-nio-8080-exec-6] c.e.mapper.BlogMapper.getALlBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog
+2021-05-24 09:55:36.747 DEBUG 10260 --- [http-nio-8080-exec-6] c.e.mapper.BlogMapper.getALlBlog_COUNT   : ==> Parameters: 
+2021-05-24 09:55:36.776 DEBUG 10260 --- [http-nio-8080-exec-6] c.e.mapper.BlogMapper.getALlBlog_COUNT   : <==      Total: 1
+2021-05-24 09:55:54.954  INFO 10260 --- [http-nio-8080-exec-3] com.example.aspect.LogAspect             : Request : RequestLog{url='http://localhost:8080/admin/adblog;jsessionid=021516CF4147132E1A9010478B411A20', ip='0:0:0:0:0:0:0:1', classMethod='com.example.controller.BlogController.adblog', args=[{}, 1]}
+2021-05-24 09:55:54.957 DEBUG 10260 --- [http-nio-8080-exec-3] c.e.mapper.BlogMapper.getALlBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog
+2021-05-24 09:55:54.957 DEBUG 10260 --- [http-nio-8080-exec-3] c.e.mapper.BlogMapper.getALlBlog_COUNT   : ==> Parameters: 
+2021-05-24 09:55:54.958 DEBUG 10260 --- [http-nio-8080-exec-3] c.e.mapper.BlogMapper.getALlBlog_COUNT   : <==      Total: 1
+2021-05-24 09:56:06.495  INFO 10260 --- [http-nio-8080-exec-1] com.example.aspect.LogAspect             : Request : RequestLog{url='http://localhost:8080/admin/adblog', ip='0:0:0:0:0:0:0:1', classMethod='com.example.controller.BlogController.adblog', args=[{}, 1]}
+2021-05-24 09:56:06.499 DEBUG 10260 --- [http-nio-8080-exec-1] c.e.mapper.BlogMapper.getALlBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog
+2021-05-24 09:56:06.500 DEBUG 10260 --- [http-nio-8080-exec-1] c.e.mapper.BlogMapper.getALlBlog_COUNT   : ==> Parameters: 
+2021-05-24 09:56:06.501 DEBUG 10260 --- [http-nio-8080-exec-1] c.e.mapper.BlogMapper.getALlBlog_COUNT   : <==      Total: 1
+2021-05-24 09:56:08.333  INFO 10260 --- [http-nio-8080-exec-8] com.example.aspect.LogAspect             : Request : RequestLog{url='http://localhost:8080/admin/adblog', ip='0:0:0:0:0:0:0:1', classMethod='com.example.controller.BlogController.adblog', args=[{}, 1]}
+2021-05-24 09:56:08.337 DEBUG 10260 --- [http-nio-8080-exec-8] c.e.mapper.BlogMapper.getALlBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog
+2021-05-24 09:56:08.338 DEBUG 10260 --- [http-nio-8080-exec-8] c.e.mapper.BlogMapper.getALlBlog_COUNT   : ==> Parameters: 
+2021-05-24 09:56:08.339 DEBUG 10260 --- [http-nio-8080-exec-8] c.e.mapper.BlogMapper.getALlBlog_COUNT   : <==      Total: 1
+2021-05-24 10:11:42.943  INFO 10260 --- [http-nio-8080-exec-2] com.example.aspect.LogAspect             : Request : RequestLog{url='http://localhost:8080/admin/adblog', ip='0:0:0:0:0:0:0:1', classMethod='com.example.controller.BlogController.adblog', args=[{}, 1]}
+2021-05-24 10:11:42.946 DEBUG 10260 --- [http-nio-8080-exec-2] c.e.mapper.BlogMapper.getALlBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog
+2021-05-24 10:11:42.947 DEBUG 10260 --- [http-nio-8080-exec-2] c.e.mapper.BlogMapper.getALlBlog_COUNT   : ==> Parameters: 
+2021-05-24 10:11:42.948 DEBUG 10260 --- [http-nio-8080-exec-2] c.e.mapper.BlogMapper.getALlBlog_COUNT   : <==      Total: 1
+2021-05-24 10:12:05.688  INFO 10260 --- [http-nio-8080-exec-3] com.example.aspect.LogAspect             : Request : RequestLog{url='http://localhost:8080/admin/adblog', ip='0:0:0:0:0:0:0:1', classMethod='com.example.controller.BlogController.adblog', args=[{}, 1]}
+2021-05-24 10:12:05.694 DEBUG 10260 --- [http-nio-8080-exec-3] c.e.mapper.BlogMapper.getALlBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog
+2021-05-24 10:12:05.695 DEBUG 10260 --- [http-nio-8080-exec-3] c.e.mapper.BlogMapper.getALlBlog_COUNT   : ==> Parameters: 
+2021-05-24 10:12:05.696 DEBUG 10260 --- [http-nio-8080-exec-3] c.e.mapper.BlogMapper.getALlBlog_COUNT   : <==      Total: 1
+2021-05-24 11:25:55.742  INFO 16076 --- [restartedMain] com.example.MyBlogApplication            : Starting MyBlogApplication using Java 1.8.0_171 on SKY-20180427JOM with PID 16076 (E:\MyBlog\target\classes started by Administrator in E:\MyBlog)
+2021-05-24 11:25:55.749 DEBUG 16076 --- [restartedMain] com.example.MyBlogApplication            : Running with Spring Boot v2.4.5, Spring v5.3.6
+2021-05-24 11:25:55.750  INFO 16076 --- [restartedMain] com.example.MyBlogApplication            : The following profiles are active: dev
+2021-05-24 11:25:56.005  INFO 16076 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-24 11:25:56.006  INFO 16076 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-24 11:25:59.943  INFO 16076 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-05-24 11:25:59.960  INFO 16076 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-24 11:25:59.966  INFO 16076 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-24 11:26:00.232  INFO 16076 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-05-24 11:26:00.234  INFO 16076 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4226 ms
+2021-05-24 11:26:02.304  INFO 16076 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-24 11:26:02.690  INFO 16076 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-05-24 11:26:03.585  INFO 16076 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-05-24 11:26:03.700  INFO 16076 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-24 11:26:03.740  INFO 16076 --- [restartedMain] com.example.MyBlogApplication            : Started MyBlogApplication in 9.965 seconds (JVM running for 14.423)
+2021-05-24 11:26:19.831  INFO 16076 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-24 11:26:19.832  INFO 16076 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-05-24 11:26:19.836  INFO 16076 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2021-05-24 11:26:19.899  INFO 16076 --- [http-nio-8080-exec-1] com.example.aspect.LogAspect             : Request : RequestLog{url='http://localhost:8080/admin', ip='0:0:0:0:0:0:0:1', classMethod='com.example.controller.LoginController.loginPage', args=[]}
+2021-05-24 11:26:26.023  INFO 16076 --- [http-nio-8080-exec-5] com.example.aspect.LogAspect             : Request : RequestLog{url='http://localhost:8080/admin/login', ip='0:0:0:0:0:0:0:1', classMethod='com.example.controller.LoginController.login', args=[admin, a123456, org.apache.catalina.session.StandardSessionFacade@744e5f15, {}]}
+2021-05-24 11:26:26.076  INFO 16076 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-05-24 11:26:26.356  INFO 16076 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-05-24 11:26:26.368 DEBUG 16076 --- [http-nio-8080-exec-5] com.example.mapper.UserMapper.findUser   : ==>  Preparing: select username,password from t_user where username = ? and password = ?
+2021-05-24 11:26:26.398 DEBUG 16076 --- [http-nio-8080-exec-5] com.example.mapper.UserMapper.findUser   : ==> Parameters: admin(String), a123456(String)
+2021-05-24 11:26:26.417 DEBUG 16076 --- [http-nio-8080-exec-5] com.example.mapper.UserMapper.findUser   : <==      Total: 1
+2021-05-24 11:26:28.739  INFO 16076 --- [http-nio-8080-exec-7] com.example.aspect.LogAspect             : Request : RequestLog{url='http://localhost:8080/admin/adblog', ip='0:0:0:0:0:0:0:1', classMethod='com.example.controller.BlogController.adblog', args=[{}, 1]}
+2021-05-24 11:26:28.838 DEBUG 16076 --- [http-nio-8080-exec-7] c.e.mapper.BlogMapper.getALlBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog
+2021-05-24 11:26:28.840 DEBUG 16076 --- [http-nio-8080-exec-7] c.e.mapper.BlogMapper.getALlBlog_COUNT   : ==> Parameters: 
+2021-05-24 11:26:28.888 DEBUG 16076 --- [http-nio-8080-exec-7] c.e.mapper.BlogMapper.getALlBlog_COUNT   : <==      Total: 1
+2021-05-24 11:26:28.906 DEBUG 16076 --- [http-nio-8080-exec-7] c.example.mapper.TypeMapper.getAllType   : ==>  Preparing: select id, name from t_type
+2021-05-24 11:26:28.906 DEBUG 16076 --- [http-nio-8080-exec-7] c.example.mapper.TypeMapper.getAllType   : ==> Parameters: 
+2021-05-24 11:26:28.912 DEBUG 16076 --- [http-nio-8080-exec-7] c.example.mapper.TypeMapper.getAllType   : <==      Total: 11
+2021-05-24 11:26:28.920 DEBUG 16076 --- [http-nio-8080-exec-7] com.example.mapper.TagMapper.getAllTag   : ==>  Preparing: select id, name from t_tag
+2021-05-24 11:26:28.921 DEBUG 16076 --- [http-nio-8080-exec-7] com.example.mapper.TagMapper.getAllTag   : ==> Parameters: 
+2021-05-24 11:26:28.925 DEBUG 16076 --- [http-nio-8080-exec-7] com.example.mapper.TagMapper.getAllTag   : <==      Total: 1

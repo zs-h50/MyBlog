@@ -1,9 +1,14 @@
 package com.example.pojo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Tag {
     private Long id;
 
     private String name;
+    /**级联关系*/
+    private List<Blog> blogs = new ArrayList<>();
 
     public Long getId() {
         return id;

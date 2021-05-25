@@ -1,5 +1,5 @@
 package com.example.pojo;
-import javax.validation.constraints.NotBlank;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +7,7 @@ public class Type {
     private Long id;
     private String name;
 
+    /**级联关系*/
     private List<Blog> blogs = new ArrayList<>();
 
     public Long getId() {

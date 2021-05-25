@@ -1,6 +1,9 @@
 package com.example.pojo;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 
 public class User {
     private Long id;
@@ -20,6 +23,8 @@ public class User {
     private Date updateTime;
 
     private String username;
+    /**级联关系*/
+    private List<Blog> blogs = new ArrayList<>();
 
     public Long getId() {
         return id;
