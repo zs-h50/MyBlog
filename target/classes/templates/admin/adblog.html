@@ -58,44 +58,47 @@
         <!-- 容器 -->
         <div class="ui container">
             <div class="ui inverted seconds segment form">
-                <input type="hidden" name="page" >
-                <div class="ui negetive message" th:unless="${#strings.isEmpty(message)}">
-                    <i class="close icon"></i>
-                    <div class="header">提示：</div>
-                    <p th:text="${message}">对不起，操作失败！</p>
-                </div>
-                <div class="inline fields">
-                    <div class="ui field">
-                        <input type="text" name="title" placeholder="标题">
+                <!--查询表单需要是form提交数据-->
+                <form th:action="@{/admin/adblog/search}" method="post" class="ui segment form" >
+                    <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+                        <i class="close icon"></i>
+                        <div class="header">提示：</div>
+                        <p th:text="${message}">对不起，操作失败！</p>
                     </div>
-                    <div class="ui field">
-                        <div id="types" class="ui selection dropdown">
-                            <input type="hidden" name="typeId">
-                            <i class="dropdown icon"></i>
-                            <div class="default text">分类</div>
-                            <div class="menu">
-                                <!-- data-value=""的值是给后端调用 -->
-                                <div class="item" th:each="types : ${type}" th:data-value="${types.id}" th:text="${types.name}"></div>
-                                <!--/*-->
-                                <div class="item" data-value="1">spring</div>
-                                <div class="item" data-value="2">spring</div>
-                                <div class="item" data-value="3">spring</div>
-                                <div class="item" data-value="4">spring</div>
-                                <!--*/-->
+                    <input type="hidden" name="page" >
+                    <div class="inline fields">
+                        <div class="ui field">
+                            <input type="text" name="title" placeholder="标题">
+                        </div>
+                        <div class="ui field">
+                            <div id="types" class="ui selection dropdown">
+                                <input type="hidden" name="typeId">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">分类</div>
+                                <div class="menu">
+                                    <!-- data-value=""的值是给后端调用 -->
+                                    <div class="item" th:each="types : ${type}" th:data-value="${types.id}" th:text="${types.name}"></div>
+                                    <!--/*-->
+                                    <div class="item" data-value="1">spring</div>
+                                    <div class="item" data-value="2">spring</div>
+                                    <div class="item" data-value="3">spring</div>
+                                    <div class="item" data-value="4">spring</div>
+                                    <!--*/-->
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- 单选框 -->
-                    <div class="field">
-                        <div class="ui checkbox">
-                            <input type="checkbox" name="recommend" id="recommend">
-                            <label for="recommend">推荐</label>
+                        <!-- 单选框 -->
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="recommend" id="recommend">
+                                <label for="recommend">推荐</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <button type="button" id="search-btn" class="ui medium teal basic button"><i class="search icon"></i>搜索</button>
                         </div>
                     </div>
-                    <div class="field">
-                        <button type="button" id="search-btn" class="ui medium teal basic button"><i class="search icon"></i>搜索</button>
-                    </div>
-                </div>
+               </form>
             </div>
             <div id="table-container">
                 <!-- 表格 实现局部刷新列表 -->

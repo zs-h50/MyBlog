@@ -17,39 +17,22 @@
     <result column="views" jdbcType="INTEGER" property="views" />
     <result column="type_id" jdbcType="BIGINT" property="typeId" />
     <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <association property="type" column="typeId" javaType="com.example.pojo.Type">
+      <id column="typeId" property="id"/>
+      <result column="typeName" property="name"/>
+    </association>
+    <association property="user" column="userId" javaType="com.example.pojo.User">
+      <id property="id" column="userId"/>
+      <result property="nickname" column="nickname"/>
+      <result property="username" column="username"/>
+      <result property="email" column="email"/>
+      <result property="avatar" column="avatar"/>
+    </association>
+    <collection property="tags" javaType="com.example.pojo.Tag">
+      <id property="id" column="tagId"/>
+      <result property="name" column="tagName"/>
+    </collection>
   </resultMap>
-  <resultMap id="BlogMap" type="com.example.pojo.Blog">
-        <id column="id" jdbcType="BIGINT" property="id" />
-        <result column="appreciation" jdbcType="BIT" property="appreciation" />
-        <result column="commentabled" jdbcType="BIT" property="commentabled" />
-        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-        <result column="description" jdbcType="VARCHAR" property="description" />
-        <result column="first_picture" jdbcType="VARCHAR" property="firstPicture" />
-        <result column="flag" jdbcType="VARCHAR" property="flag" />
-        <result column="published" jdbcType="BIT" property="published" />
-        <result column="recommend" jdbcType="BIT" property="recommend" />
-        <result column="share_statement" jdbcType="BIT" property="shareStatement" />
-        <result column="title" jdbcType="VARCHAR" property="title" />
-        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-        <result column="views" jdbcType="INTEGER" property="views" />
-        <result column="type_id" jdbcType="BIGINT" property="typeId" />
-        <result column="user_id" jdbcType="BIGINT" property="userId" />
-        <association property="type" column="typeId" javaType="com.example.pojo.Type">
-          <id column="typeId" property="id"/>
-          <result column="typeName" property="name"/>
-        </association>
-        <association property="user" column="userId" javaType="com.example.pojo.User">
-          <id property="id" column="userId"/>
-          <result property="nickname" column="nickname"/>
-          <result property="username" column="username"/>
-          <result property="email" column="email"/>
-          <result property="avatar" column="avatar"/>
-        </association>
-        <collection property="tags" ofType="com.example.pojo.Tag">
-          <id property="id" column="tagId"/>
-          <result property="name" column="tagName"/>
-        </collection>
-    </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.example.pojo.Blog">
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
@@ -282,7 +265,7 @@
     <include refid="Base_Column_List" />
     from t_blog
   </select>
-  <select id="searchAllBlog" resultMap="BlogMap">
+  <select id="searchAllBlog" resultMap="BaseResultMap">
     <bind name="pattern" value="'%' + title + '%'"/>
     select b.id,b.title,b.update_time,b.recommend,b.published,b.type_id,t.id,t.name
     from

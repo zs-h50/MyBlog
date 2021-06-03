@@ -49,7 +49,7 @@ public class BlogController {
         return "admin/adblog";
     }
 
-    @GetMapping(value = "/admin/adblog/search")
+    @PostMapping(value = "/admin/adblog/search")
     public String search(Blog blog,
                          Model model,
                          @RequestParam(required = false,defaultValue = "1",value = "pageNum")Integer pageNum){
@@ -58,8 +58,8 @@ public class BlogController {
         PageInfo<Blog> pageInfo = new PageInfo<>(aLlBlog);
         model.addAttribute("pageInfo",pageInfo);
         model.addAttribute("message", "查询成功");
-        setTypeAndTag(model);
-        return "admin/adblog";
+        //setTypeAndTag(model);
+        return "admin/adblog :: blogList";
     }
 
 }
